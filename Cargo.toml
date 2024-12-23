@@ -1,0 +1,10 @@
+[package]
+name = "pi_calculator_parallel"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.5.23", features = ["derive"] }
+prime_factorization = "1.0.5"
+rayon = "1.10.0"
+rstest = "0.23.0"
