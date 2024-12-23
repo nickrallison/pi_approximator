@@ -1,4 +1,3 @@
-use prime_factorization::Factorization;
 use rayon::prelude::*;
 
 /// Chi is the following piecewise function:
@@ -18,7 +17,7 @@ const fn chi(n: u32) -> i8 {
 
 /// This calculates the sum of chi(prime^x) for all x in [1, max_pow]
 fn sum_chi(prime: u32, max_pow: u32) -> u64 {
-    let iter = (0..=max_pow);
+    let iter = 0..=max_pow;
     iter.into_par_iter()
         .map(|pow| chi((prime).pow(pow)))
         .reduce(|| 0, |a, b| a + b) as u64
@@ -42,9 +41,9 @@ fn num_latice_points_sqrtn(n: u32) -> u64 {
 }
 
 pub fn num_latice_points_in_circle_sqrtn(n: u32) -> u64 {
-    let iter = (1..=n);
+    let iter = 1..=n;
     iter.into_par_iter()
-        .map(|rad| num_latice_points_sqrtn(rad))
+        .map(num_latice_points_sqrtn)
         .reduce(|| 0, |a, b| a + b)
 }
 
