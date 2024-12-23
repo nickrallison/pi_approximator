@@ -6,7 +6,7 @@ mod calc;
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
 struct Args {
-    /// The number to calculate the number of lattice points with a radius lower than this
+    /// The number to calculate the number of lattice points with a radius lower than or equal to sqrt of this number
     #[arg(short, long)]
     num: u32
 }
